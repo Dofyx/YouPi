@@ -9,9 +9,9 @@ def index():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
+    link = request.form['youtube_link']
+    subprocess.call(["./youpiPlay.sh", link], shell=True)
+    return render_template('index.html')
 
 @app.route('/play')
 def play():
