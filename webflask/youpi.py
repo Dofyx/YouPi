@@ -11,7 +11,7 @@ def play():
     subprocess.call(['./youpiPlay.sh'], shell=True) 
   
 @app.route('/stop')
-def play():
+def stop():
     subprocess.call(['./youpiStop.sh'], shell=True)
 
 if __name__ == '__main__':
