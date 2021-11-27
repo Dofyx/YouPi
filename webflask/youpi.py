@@ -11,7 +11,7 @@ def index():
 def form_post():
     link = request.form['youtube_link']
     subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(['cvlc', link], shell=True)
+    subprocess.call(['youpiPlay.sh', link], shell=True)
     return render_template('index.html')
 
 @app.route('/play')
@@ -19,7 +19,7 @@ def play():
     id = request.args['id']
     link1 = 'https://www.youtube.com/watch?v=' + id
     subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(['cvlc', link1], shell=True)
+    subprocess.call(['youpiPlay.sh', link1], shell=True)
     return render_template('index.html')
 
 @app.route('/stop')
