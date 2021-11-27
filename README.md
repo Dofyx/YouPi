@@ -1,4 +1,4 @@
-Youtube player for raspberry pi working progress
+Youtube player for raspberry pi, working progress
 
 
 
