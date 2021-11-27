@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import subprocess
-import request
+import requests
 
 app = Flask(__name__)
 
@@ -10,14 +10,14 @@ def index():
 
 @app.route('/', methods=['POST'])
 def form_post():
-    link = request.form['youtube_link']
+    link = requests.form['youtube_link']
     subprocess.call(['pkill vlc'], shell=True)
     subprocess.call(['cvlc', link], shell=True)
     return render_template('index.html')
 
 @app.route('/play')
 def play():
-    id = request.args['id']
+    id = requests.args['id']
     link1 = 'https://www.youtube.com/watch?v=' + id
     subprocess.call(['pkill vlc'], shell=True)
     subprocess.call(['cvlc', link1], shell=True)
