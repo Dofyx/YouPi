@@ -10,16 +10,18 @@ def index():
 @app.route('/', methods=['POST'])
 def form_post():
     link = request.form['youtube_link']
+    youplay = './youpiPlay.sh ' + link
     subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(['./youpiPlay.sh', link], shell=True)
+    subprocess.call(youplay, shell=True)
     return render_template('index.html')
 
 @app.route('/play')
 def play():
     id = request.args['id']
-    link1 = 'https://www.youtube.com/watch?v=' + id
+    link_api = 'https://www.youtube.com/watch?v=' + id
+    youplay_api = './youpiPlay.sh ' + link_api
     subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(['./youpiPlay.sh', link1], shell=True)
+    subprocess.call(youplay_api, shell=True)
     return render_template('index.html')
 
 @app.route('/stop')
