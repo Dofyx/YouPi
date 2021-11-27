@@ -9,7 +9,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/', methods=['POST'])
-def my_form_post():
+def form_post():
     link = request.form['youtube_link']
     subprocess.call(['pkill vlc'], shell=True)
     subprocess.call(['cvlc', link], shell=True)
@@ -18,8 +18,9 @@ def my_form_post():
 @app.route('/play')
 def play():
     id = request.args['id']
+    link1 = 'https://www.youtube.com/watch?v=' + id
     subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(['cvlc', 'https://www.youtube.com/watch?v=', id], shell=True)
+    subprocess.call(['cvlc', link1], shell=True)
     return render_template('index.html')
 
 @app.route('/stop')
