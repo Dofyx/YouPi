@@ -1,5 +1,7 @@
+<p align="center">
 <img src="https://github.com/Dofyx/YouPi/blob/main/webflask/templates/youpi.png" style="width: 50%; height: 50%"/>
-
+</p>
+  
 Youtube player for raspberry pi, working progress
 
 
