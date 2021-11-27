@@ -4,11 +4,6 @@ body {
     text-align: center;
 }
 
-img {
-    max-width: 50%;
-    height: auto;
-}
-
 input[type=text], select {
   width: 30%;
   padding: 12px 20px;
