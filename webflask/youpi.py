@@ -14,7 +14,6 @@ def play():
     link = request.form['youtube_link']
     youplay = 'cvlc ' + link
     subprocess.call(['pkill vlc'], shell=True)
-    return render_template('index.html')
     subprocess.call(youplay, shell=True)
 
 def stop():
@@ -28,7 +27,6 @@ def play_api():
     link_api = 'https://www.youtube.com/watch?v=' + id
     youplay_api = 'cvlc ' + link_api
     subprocess.call(['pkill vlc'], shell=True)
-    return render_template('index.html')
     subprocess.call(youplay_api, shell=True)
 
 @app.route('/stop')
