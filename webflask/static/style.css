@@ -8,7 +8,7 @@ input[type=text], select {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 2px solid #e25098;
+  border: 4px solid #e25098;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -20,11 +20,26 @@ input[type=submit] {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
   background-color: #45a049;
 }
 
