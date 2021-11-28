@@ -1,9 +1,10 @@
 body {
     background: black;
     color: white;
+    text-align: center;
 }
 
-input[type=text], select {
+.text, select {
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -13,7 +14,7 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+.submit {
   width: 10%;
   background-color: #4CAF50;
   color: white;
@@ -24,13 +25,13 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+.submit:hover {
   background-color: #45a049;
 }
 
-button[type=submit] {
+.stop {
   width: 10%;
-  background-color: #4CAF50;
+  background-color: #FF0000;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -39,8 +40,8 @@ button[type=submit] {
   cursor: pointer;
 }
 
-button[type=submit]:hover {
-  background-color: #45a049;
+.stop:hover {
+  background-color: #B30505;
 }
 
 div {
