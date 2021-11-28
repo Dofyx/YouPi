@@ -4,7 +4,7 @@ User=pi
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/Youpi/webflask/youpi.py
+ExecStart=/home/pi/YouPi/webflask/youpi.py
 
 [Install]
 WantedBy=multi-user.target
