@@ -12,20 +12,15 @@ def index():
 @app.route('/', methods=['POST'])
 def play():
     link = request.form['youtube_link']
-    youplay = 'cvlc ' + link
+    youplay = 'cvlc --play-and-exit ' + link + ' > /dev/null 2>&1'
     subprocess.call(['pkill vlc'], shell=True)
     subprocess.call(youplay, shell=True)
-
-def stop():
-    if "stop" in request.form:
-        subprocess.call(['pkill vlc'], shell=True)
-        return render_template('index.html')
 
 @app.route('/play')
 def play_api():
     id = request.args['id']
     link_api = 'https://www.youtube.com/watch?v=' + id
-    youplay_api = 'cvlc ' + link_api
+    youplay_api = 'cvlc --play-and-exit ' + link_api + ' > /dev/null 2>&1'
     subprocess.call(['pkill vlc'], shell=True)
     subprocess.call(youplay_api, shell=True)
 
