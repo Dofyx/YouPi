@@ -2,9 +2,18 @@
 <img src="https://github.com/Dofyx/YouPi/blob/main/webflask/static/youpi.png"/>
 </p>
   
-Youtube audio player for raspberry pi, working progress
+Youtube audio player for raspberry pi
 
-### Intall
+### work progress
+
+- [x] Flask server
+- [x] vlc flask control
+- [x] html web interface
+- [x] API
+- [ ] debug
+- [ ] install script
+
+### Install
 working progress
 
 ### Web interface
