@@ -11,6 +11,7 @@ Youtube audio player for raspberry pi
 - [x] html web interface
 - [x] API
 - [ ] debug
+- [ ] Daemon script
 - [ ] install script
 
 ### Install
