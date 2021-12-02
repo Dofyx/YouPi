@@ -3,7 +3,7 @@ Description=youpi start
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/YouPi/youpi.sh
+ExecStart=/home/pi/YouPi/Scripts/youpi.sh
 
 [Install]
 WantedBy=multi-user.target
