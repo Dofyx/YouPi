@@ -2,6 +2,9 @@
 
 from flask import Flask, render_template, request
 import subprocess
+import televlc
+
+vlc = televlc.VLC(PASSWORD, 127.0.0.1, PORT)
 
 app = Flask(__name__)
 
@@ -10,24 +13,35 @@ def index():
     return render_template('index.html')
 
 @app.route('/', methods=['POST'])
-def play():
+def add():
     link = request.form['youtube_link']
-    youplay = 'cvlc --play-and-exit ' + link
-    subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(youplay, shell=True)
+    command = 'add ' + link
+    vlc.do(command)
 
-@app.route('/play')
+@app.route('/play', methods=['GET'])
 def play_api():
-    id = request.args['id']
-    link_api = 'https://www.youtube.com/watch?v=' + id
-    youplay_api = 'cvlc --play-and-exit ' + link_api
-    subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(youplay_api, shell=True)
+    command = 'play'
+    vlc.do(command)
 
-@app.route('/stop')
+@app.route('/stop', methods=['GET'])
 def stop_api():
-    subprocess.call(['pkill vlc'], shell=True)
-    return render_template('index.html')
+    command = 'stop'
+    vlc.do(command)
 
+@app.route('/pause', methods=['GET'])
+def pause_api():
+    command = 'pause'
+    vlc.do(command)
+    
+@app.route('/volup', methods=['GET'])
+def volup_api():
+    command = ["volup", "1"]
+    vlc.do(command)
+    
+@app.route('/voldown', methods=['GET'])
+def voldown_api():
+    command = ["voldown", "1"]
+    vlc.do(command)
+ 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
