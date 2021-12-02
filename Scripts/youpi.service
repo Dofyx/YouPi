@@ -1,10 +1,9 @@
 [Unit]
 Description=youpi start
-User=pi
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/YouPi/webflask/youpi.py
+ExecStart=/home/pi/YouPi/youpi.sh
 
 [Install]
 WantedBy=multi-user.target
