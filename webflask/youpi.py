@@ -6,6 +6,8 @@ import televlc
 
 vlc = televlc.VLC(PASSWORD, 127.0.0.1, PORT)
 
+vlc.connect_to_telnet_interface()
+
 app = Flask(__name__)
 
 @app.route('/')
