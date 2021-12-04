@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 import subprocess
 import televlc
 
-vlc = televlc.VLC(PASSWORD, 127.0.0.1, PORT)
+vlc = televlc.VLC(you314, 127.0.0.1, PORT)
 
 vlc.connect_to_telnet_interface()
 
