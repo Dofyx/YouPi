@@ -1,15 +1,21 @@
 #!/usr/bin/python3
 
+# Flask
 from flask import Flask, render_template, request
 import subprocess
-import televlc
-
-vlc = televlc.VLC(you314, 127.0.0.1, 5824)
-
-vlc.connect_to_telnet_interface()
-
 app = Flask(__name__)
 
+# Telnet
+import telnetlib
+host = '127.0.0.1'
+port = 5824
+passwd = 'you314'
+def tnconnect():
+    tn=telnetlib.Telnet(host, port)
+    tn.read_until(b"Password: ")
+    tn.write(passwd.encode('ascii') + b'\n')
+
+# API
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -17,33 +23,40 @@ def index():
 @app.route('/', methods=['POST'])
 def add():
     link = request.form['youtube_link']
-    command_add = 'add ' + link
-    vlc.do(command_add)
+    tnconnect()
+    tn.write(b'add ' + str(link).encode('ascii') + b'\n')
+    tn.close()
 
 @app.route('/play', methods=['GET'])
 def play_api():
-    command_play = 'play'
-    vlc.do(command_play)
+    tnconnect()
+    tn.write(b'play\n')
+    tn.close()
 
 @app.route('/stop', methods=['GET'])
 def stop_api():
-    command_stop = 'stop'
-    vlc.do(command_stop)
+    tnconnect()
+    tn.write(b'stop\n')
+    tn.close()
 
 @app.route('/pause', methods=['GET'])
 def pause_api():
-    command_pause = 'pause'
-    vlc.do(command_pause)
+    tnconnect()
+    tn.write(b'pause\n')
+    tn.close()
     
 @app.route('/volup', methods=['GET'])
 def volup_api():
-    command_volup = ["volup", "1"]
-    vlc.do(command_volup)
+    tnconnect()
+    tn.write(b'volup 1\n')
+    tn.close()
     
 @app.route('/voldown', methods=['GET'])
 def voldown_api():
-    command_voldown = ["voldown", "1"]
-    vlc.do(command_voldown)
- 
+    tnconnect()
+    tn.write(b'voldown 1\n')
+    tn.close()
+
+# run server
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
