@@ -30,7 +30,7 @@ http://<ip_address>:8080/play
 #### Next audio youtube stream from playlist :
 http://<ip_address>:8080/next
 
-#### Previou audio youtube stream from playlist :
+#### Previous audio youtube stream from playlist :
 http://<ip_address>:8080/prev
 
 #### Stop audio youtube stream :
@@ -39,10 +39,10 @@ http://<ip_address>:8080/stop
 #### Pause audio youtube stream :
 http://<ip_address>:8080/pause
 
-#### volume up 1 audio youtube stream :
+#### volume up audio youtube stream :
 http://<ip_address>:8080/volup
 
-#### volume down 1 audio youtube stream :
+#### volume down audio youtube stream :
 http://<ip_address>:8080/voldown
 
 
