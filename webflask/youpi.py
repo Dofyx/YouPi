@@ -1,33 +1,62 @@
 #!/usr/bin/python3
 
+# Flask
 from flask import Flask, render_template, request
 import subprocess
-
 app = Flask(__name__)
 
+# Telnet
+import telnetlib
+host = '127.0.0.1'
+port = 5824
+passwd = 'you314'
+def tnconnect():
+    tn=telnetlib.Telnet(host, port)
+    tn.read_until(b"Password: ")
+    tn.write(passwd.encode('ascii') + b'\n')
+
+# API
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/', methods=['POST'])
-def play():
+def add():
     link = request.form['youtube_link']
-    youplay = 'cvlc --play-and-exit ' + link
-    subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(youplay, shell=True)
+    tnconnect()
+    tn.write(b'add ' + str(link).encode('ascii') + b'\n')
+    tn.close()
 
-@app.route('/play')
+@app.route('/play', methods=['GET'])
 def play_api():
-    id = request.args['id']
-    link_api = 'https://www.youtube.com/watch?v=' + id
-    youplay_api = 'cvlc --play-and-exit ' + link_api
-    subprocess.call(['pkill vlc'], shell=True)
-    subprocess.call(youplay_api, shell=True)
+    tnconnect()
+    tn.write(b'play\n')
+    tn.close()
 
-@app.route('/stop')
+@app.route('/stop', methods=['GET'])
 def stop_api():
-    subprocess.call(['pkill vlc'], shell=True)
-    return render_template('index.html')
+    tnconnect()
+    tn.write(b'stop\n')
+    tn.close()
 
+@app.route('/pause', methods=['GET'])
+def pause_api():
+    tnconnect()
+    tn.write(b'pause\n')
+    tn.close()
+    
+@app.route('/volup', methods=['GET'])
+def volup_api():
+    tnconnect()
+    tn.write(b'volup 1\n')
+    tn.close()
+    
+@app.route('/voldown', methods=['GET'])
+def voldown_api():
+    tnconnect()
+    tn.write(b'voldown 1\n')
+    tn.close()
+
+# run server
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)

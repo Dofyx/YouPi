@@ -1,9 +1,9 @@
 [Unit]
 Description=youpi start
-User=pi
 
 [Service]
 Type=oneshot
+ExecStart=vlc --novideo --ttl 2 -I telnet --telnet-password you314 --telnet-host 127.0.0.1 --telnet-port 5824
 ExecStart=/home/pi/YouPi/webflask/youpi.py
 
 [Install]
