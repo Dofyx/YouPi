@@ -44,6 +44,18 @@ def pause_api():
     tnconnect()
     tn.write(b'pause\n')
     tn.close()
+
+@app.route('/next', methods=['GET'])
+def next_api():
+    tnconnect()
+    tn.write(b'next\n')
+    tn.close()    
+
+@app.route('/prev', methods=['GET'])
+def prev_api():
+    tnconnect()
+    tn.write(b'prev\n')
+    tn.close()        
     
 @app.route('/volup', methods=['GET'])
 def volup_api():
