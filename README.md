@@ -7,8 +7,8 @@ Youtube audio player for raspberry pi
 ### work progress
 
 - [x] Flask server
-- [x] vlc flask control
-- [x] html web interface
+- [x] vlc instance telnet control
+- [ ] html web interface
 - [x] API
 - [ ] debug
 - [ ] Daemon script
@@ -23,8 +23,10 @@ http://<ip_address>:8080
 ### API
 
 #### Start audio youtube stream with youtube id's video :
-http://<ip_address>:8080/play?id=xxxxxxx
-
+http://<ip_address>:8080/add?id=xxxxxxx
 
 #### Stop audio youtube stream :
 http://<ip_address>:8080/stop
+
+#### Pause audio youtube stream :
+http://<ip_address>:8080/pause
