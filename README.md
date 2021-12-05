@@ -1,6 +1,6 @@
 <p align="center">
 <img src="https://github.com/Dofyx/YouPi/blob/main/webflask/static/youpi.png"/>
-
+</p>
   
 Youtube audio player for raspberry pi
 
@@ -44,4 +44,4 @@ http://<ip_address>:8080/volup
 #### volume down 1 audio youtube stream :
 http://<ip_address>:8080/voldown
 
-</p>
+
