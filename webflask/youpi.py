@@ -18,7 +18,11 @@ def tnconnect():
 # API
 @app.route('/')
 def index():
-    return render_template('index.html')
+    tnconnect()
+    tn.write(b'playlist 1\n')
+    playlist = tn.read_all()
+    tn.close()
+    return render_template('index.html', variable=playlist)
 
 @app.route('/', methods=['POST'])
 def add():
@@ -26,7 +30,8 @@ def add():
     tnconnect()
     tn.write(b'add ' + str(link).encode('ascii') + b'\n')
     tn.close()
-
+    return render_template('index.html')
+    
 @app.route('/play', methods=['GET'])
 def play_api():
     tnconnect()
