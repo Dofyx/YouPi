@@ -31,48 +31,56 @@ def add():
     tnconnect()
     tn.write(b'add ' + str(link).encode('ascii') + b'\n')
     tn.close()
+    return redirect('/')
     
 @app.route('/play', methods=['GET'])
 def play_api():
     tnconnect()
     tn.write(b'play\n')
     tn.close()
+    return redirect('/')
 
 @app.route('/stop', methods=['GET'])
 def stop_api():
     tnconnect()
     tn.write(b'stop\n')
     tn.close()
+    return redirect('/')
 
 @app.route('/pause', methods=['GET'])
 def pause_api():
     tnconnect()
     tn.write(b'pause\n')
     tn.close()
+    return redirect('/')
 
 @app.route('/next', methods=['GET'])
 def next_api():
     tnconnect()
     tn.write(b'next\n')
-    tn.close()    
+    tn.close()
+    return redirect('/')
 
 @app.route('/prev', methods=['GET'])
 def prev_api():
     tnconnect()
     tn.write(b'prev\n')
-    tn.close()        
+    tn.close()
+    return redirect('/')
     
 @app.route('/volup', methods=['GET'])
 def volup_api():
     tnconnect()
     tn.write(b'volup 1\n')
     tn.close()
+    return redirect('/')
     
 @app.route('/voldown', methods=['GET'])
 def voldown_api():
     tnconnect()
     tn.write(b'voldown 1\n')
     tn.close()
+    return redirect('/')
 
 # run server
 if __name__ == '__main__':
