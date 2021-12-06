@@ -20,7 +20,8 @@ def tnconnect():
 def index():
     tnconnect()
     tn.write(b'playlist 1\n')
-    playlist = tn.read_eager()
+    output = tn.read_eager()
+    playlist = output.decode() + "\n"
     tn.close()
     return render_template('index.html', variable=playlist)
 
