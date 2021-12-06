@@ -20,7 +20,7 @@ def tnconnect():
 def index():
     tnconnect()
     tn.write(b'playlist 1\n')
-    playlist = tn.read_all()
+    playlist = tn.read_eager()
     tn.close()
     return render_template('index.html', variable=playlist)
 
@@ -30,7 +30,6 @@ def add():
     tnconnect()
     tn.write(b'add ' + str(link).encode('ascii') + b'\n')
     tn.close()
-    return render_template('index.html')
     
 @app.route('/play', methods=['GET'])
 def play_api():
