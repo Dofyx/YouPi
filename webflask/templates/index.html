@@ -10,16 +10,25 @@
 <br />
 <br />
 <br />
+<p>{{ html_playlist }}</p>
+<br />
+<br />
+<br />
 <div>
   <form method="POST">
     <input class="text" type="text" name="youtube_link" placeholder="Youtube link">
-    <input class="submit" type="submit" name="youtube_link"  value="add">
+    <input class="add" type="submit" name="youtube_link"  value="add">
   </form>
   <form>
-    <button class="play" name="play" onclick="play_api()">play</button>
-    <input class="play" type="submit" name="play"  value="play">
-    <input class="stop" type="submit" name="stop"  value="stop">
-    <input class="pause" type="submit" name="pause"  value="pause">
+    <form action="/play" method="post">
+      <input class="play" type="submit" name="play"  value="play">
+    </form>
+    <form action="/stop" method="post">
+      <input class="stop" type="submit" name="stop"  value="stop">
+    </form>
+    <form action="/pause" method="post">
+      <input class="pause" type="submit" name="pause"  value="pause">
+    </form>
   </form>
 <br />
 <br />
