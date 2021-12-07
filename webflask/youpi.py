@@ -20,7 +20,7 @@ def tnconnect():
 def index():
     tnconnect()
     tn.write(b'playlist 1\n')
-    output = tn.read_eager()
+    output = tn.read_very_eager()
     playlist = output.decode() + "\n"
     tn.close()
     return render_template('index.html', html_playlist=playlist)
@@ -31,56 +31,48 @@ def add():
     tnconnect()
     tn.write(b'add ' + str(link).encode('ascii') + b'\n')
     tn.close()
-    return redirect('/')
     
-@app.route('/play', methods=['GET'])
+@app.route('/play', methods=['POST'])
 def play_api():
     tnconnect()
     tn.write(b'play\n')
     tn.close()
-    return redirect('/')
 
-@app.route('/stop', methods=['GET'])
+@app.route('/stop', methods=['POST'])
 def stop_api():
     tnconnect()
     tn.write(b'stop\n')
     tn.close()
-    return redirect('/')
 
-@app.route('/pause', methods=['GET'])
+@app.route('/pause', methods=['POST'])
 def pause_api():
     tnconnect()
     tn.write(b'pause\n')
     tn.close()
-    return redirect('/')
 
-@app.route('/next', methods=['GET'])
+@app.route('/next', methods=['POST'])
 def next_api():
     tnconnect()
     tn.write(b'next\n')
     tn.close()
-    return redirect('/')
 
-@app.route('/prev', methods=['GET'])
+@app.route('/prev', methods=['POST'])
 def prev_api():
     tnconnect()
     tn.write(b'prev\n')
     tn.close()
-    return redirect('/')
     
-@app.route('/volup', methods=['GET'])
+@app.route('/volup', methods=['POST'])
 def volup_api():
     tnconnect()
     tn.write(b'volup 1\n')
     tn.close()
-    return redirect('/')
     
-@app.route('/voldown', methods=['GET'])
+@app.route('/voldown', methods=['POST'])
 def voldown_api():
     tnconnect()
     tn.write(b'voldown 1\n')
     tn.close()
-    return redirect('/')
 
 # run server
 if __name__ == '__main__':
