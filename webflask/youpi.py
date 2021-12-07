@@ -23,7 +23,7 @@ def index():
     output = tn.read_eager()
     playlist = output.decode() + "\n"
     tn.close()
-    return render_template('index.html', variable=playlist)
+    return render_template('index.html', html_playlist=playlist)
 
 @app.route('/', methods=['POST'])
 def add():
