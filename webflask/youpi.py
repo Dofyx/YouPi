@@ -19,6 +19,7 @@ def index():
     tn.read_until(b"Password: ")
     tn.write(passwd.encode('ascii') + b'\n')
     tn.write(b'playlist 1\n')
+    time.sleep(1)
     output = tn.read_very_eager()
     tn.close()
     playlist = output.decode() + "\n"
