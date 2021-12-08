@@ -29,7 +29,7 @@ def index():
 def add():
     link = request.form['youtube_link']
     tnconnect()
-    tn.write(b'add ' + str(link).encode('ascii') + b'\n')
+    tn.write(b'enqueue ' + str(link).encode('ascii') + b'\n')
     tn.close()
     
 @app.route('/play', methods=['POST'])
