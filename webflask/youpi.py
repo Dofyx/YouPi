@@ -10,15 +10,15 @@ import telnetlib, time
 host = '127.0.0.1'
 port = 5824
 passwd = 'you314'
-def tnconnect():
-    tn=telnetlib.Telnet(host, port)
+tn=telnetlib.Telnet(host, port)
+def tnpasswd():
     tn.read_until(b"Password: ")
     tn.write(passwd.encode('ascii') + b'\n')
 
 # API
 @app.route('/')
 def index():
-    tnconnect()
+    tnpasswd()
     tn.write(b'playlist 1\n')
     output = tn.read_very_eager()
     playlist = output.decode() + "\n"
@@ -28,55 +28,55 @@ def index():
 @app.route('/', methods=['POST'])
 def add():
     link = request.form['youtube_link']
-    tnconnect()
+    tnpasswd()
     tn.write(b'enqueue ' + str(link).encode('ascii') + b'\n')
     tn.close()
 
 @app.route('/play', methods=['POST'])
 def play_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'play\n')
     tn.close()
 
 @app.route('/stop', methods=['POST'])
 def stop_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'stop\n')
     tn.close()
 
 @app.route('/pause', methods=['POST'])
 def pause_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'pause\n')
     tn.close()
 
 @app.route('/next', methods=['POST'])
 def next_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'next\n')
     tn.close()
 
 @app.route('/prev', methods=['POST'])
 def prev_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'prev\n')
     tn.close()
 
 @app.route('/clear', methods=['POST'])
 def clear_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'clear\n')
     tn.close()
 
 @app.route('/volup', methods=['POST'])
 def volup_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'volup 1\n')
     tn.close()
 
 @app.route('/voldown', methods=['POST'])
 def voldown_api():
-    tnconnect()
+    tnpasswd()
     tn.write(b'voldown 1\n')
     tn.close()
 
