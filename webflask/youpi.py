@@ -31,7 +31,7 @@ def add():
     tnconnect()
     tn.write(b'enqueue ' + str(link).encode('ascii') + b'\n')
     tn.close()
-    
+
 @app.route('/play', methods=['POST'])
 def play_api():
     tnconnect()
@@ -61,19 +61,19 @@ def prev_api():
     tnconnect()
     tn.write(b'prev\n')
     tn.close()
-    
+
 @app.route('/clear', methods=['POST'])
 def clear_api():
     tnconnect()
     tn.write(b'clear\n')
     tn.close()
-    
+
 @app.route('/volup', methods=['POST'])
 def volup_api():
     tnconnect()
     tn.write(b'volup 1\n')
     tn.close()
-    
+
 @app.route('/voldown', methods=['POST'])
 def voldown_api():
     tnconnect()
