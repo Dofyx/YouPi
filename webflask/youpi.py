@@ -6,7 +6,7 @@ import subprocess
 app = Flask(__name__)
 
 # Telnet
-import telnetlib
+import telnetlib, time
 host = '127.0.0.1'
 port = 5824
 passwd = 'you314'
@@ -60,6 +60,12 @@ def next_api():
 def prev_api():
     tnconnect()
     tn.write(b'prev\n')
+    tn.close()
+    
+@app.route('/clear', methods=['POST'])
+def clear_api():
+    tnconnect()
+    tn.write(b'clear\n')
     tn.close()
     
 @app.route('/volup', methods=['POST'])
