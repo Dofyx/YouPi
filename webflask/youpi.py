@@ -11,9 +11,6 @@ host = '127.0.0.1'
 port = 5824
 passwd = 'you314'
 tn=telnetlib.Telnet(host, port)
-def tnpasswd():
-    tn.read_until(b"Password: ")
-    tn.write(passwd.encode('ascii') + b'\n')
 
 # API
 @app.route('/')
@@ -23,8 +20,8 @@ def index():
     tn.write(passwd.encode('ascii') + b'\n')
     tn.write(b'playlist 1\n')
     output = tn.read_very_eager()
-    playlist = output.decode() + "\n"
     tn.close()
+    playlist = output.decode() + "\n"
     return render_template('index.html', html_playlist=playlist)
 
 @app.route('/', methods=['POST'])
@@ -66,7 +63,9 @@ def pause_api():
 
 @app.route('/next', methods=['POST'])
 def next_api():
-    tnpasswd()
+    tn=telnetlib.Telnet(host, port)
+    tn.read_until(b"Password: ")
+    tn.write(passwd.encode('ascii') + b'\n')
     tn.write(b'next\n')
     tn.close()
     return redirect("/")
