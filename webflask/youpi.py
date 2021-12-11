@@ -10,7 +10,6 @@ import telnetlib, time
 host = '127.0.0.1'
 port = 5824
 passwd = 'you314'
-tn=telnetlib.Telnet(host, port)
 
 # API
 @app.route('/')
