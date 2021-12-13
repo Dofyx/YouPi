@@ -1,38 +1,58 @@
 <html>
-<head>
-<link rel="stylesheet" href='/static/style.css' />
-</head>
-<body>
-<br />
-<img src="/static/youpi.png">
-<br />
-<br />
-<br />
-<br />
-<br />
-<div>
-  <form method="POST">
-    <input class="text" type="text" name="youtube_link" placeholder="Youtube link">
-    <input class="submit" type="submit" name="youtube_link"  value="add">
-  </form>
-  <form>
-    <input class="play" type="submit" name="play"  value="play">
-    <input class="stop" type="submit" name="stop"  value="stop">
-  </form>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<p><b>API</b></p>
-<p><b>Start audio youtube stream with youtube id's video</b></p>
-<p>http://ip_address:8080/play?id=xxxxxxx</p>
-<p><b>Stop audio youtube stream</b></p>
-<p>http://ip_address:8080/stop</p>
-</div>
-</body>
+   <head>
+     <link rel="stylesheet" href='/static/style.css' />
+   </head>
+   <body>
+     <br />
+     <img src="/static/youpi.png">
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <div class="playlist">
+        <p>{{ html_playlist }}</p>
+        <div class="inline">  
+          <form action="/prev" method="post">
+            <input class="pl" type="submit" name="prev"  value="prev">
+          </form>
+          <form action="/clear" method="post">
+            <input class="pl" type="submit" name="clear"  value="clear">
+          </form>
+          <form action="/next" method="post">  
+            <input class="pl" type="submit" name="next"  value="next">
+          </form>
+        </div>
+     </div>
+        <br />
+        <form method="POST">
+            <input class="text" type="text" name="youtube_link" placeholder="Youtube link">
+            <input class="add" type="submit" name="youtube_link"  value="add">
+        </form>
+        <br />
+     <div class="control">
+        <p>Control</p>
+        <div class="inline"> 
+          <form action="/play" method="post">
+            <input class="play" type="submit" name="play"  value="play">
+          </form>
+          <form action="/pause" method="post">
+            <input class="pause" type="submit" name="pause"  value="pause">
+          </form>
+          <form action="/stop" method="post">
+            <input class="stop" type="submit" name="stop"  value="stop">
+          </form>
+        </div>
+
+        <div class="inline"> 
+          <form action="/volup" method="post">
+            <input class="vol" type="submit" name="volup"  value="vol +">
+          </form>
+          <form action="/voldown" method="post">
+            <input class="vol" type="submit" name="voldown"  value="vol -">
+          </form>
+        </div>
+     </div>
+     
+   </body>
 </html>
