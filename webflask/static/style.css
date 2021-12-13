@@ -4,6 +4,25 @@ body {
     text-align: center;
 }
 
+.inline form {display : inline-block;}
+
+.playlist {
+    margin: 0 auto;
+    width: 600px;
+    height: 200px;
+    padding: 12px;
+    border: 4px solid #e25098;
+    border-radius: 15px;
+}
+
+.control {
+    margin: 0 auto;
+    width: 500px;
+    height: 170px; 
+    border: 4px solid #e25098;
+    border-radius: 15px;
+}
+
 .text, select {
   width: 30%;
   padding: 12px 20px;
@@ -14,7 +33,7 @@ body {
   box-sizing: border-box;
 }
 
-.submit {
+.add {
   width: 10%;
   background-color: #4CAF50;
   color: white;
@@ -25,15 +44,15 @@ body {
   cursor: pointer;
 }
 
-.submit:hover {
+.add:hover {
   background-color: #45a049;
 }
 
 .stop {
-  width: 10%;
+  width: 100%;
   background-color: #FF0000;
   color: white;
-  padding: 14px 20px;
+  padding: 14px 40px;
   margin: 8px 0;
   border: none;
   border-radius: 6px;
@@ -44,6 +63,67 @@ body {
   background-color: #B30505;
 }
 
-div {
-  text-align: center;
+.play {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 40px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
+
+.play:hover {
+  background-color: #45a049;
+}
+
+.pause {
+  width: 100%;
+  background-color: #FF7F00;
+  color: white;
+  padding: 14px 30px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pause:hover {
+  background-color: #CE6A06;
+}
+
+.pl {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 30px;
+  margin: 100px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pl:hover {
+  background-color: #45a049;
+}
+
+.vol {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 30px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.vol:hover {
+  background-color: #45a049;
+}
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
