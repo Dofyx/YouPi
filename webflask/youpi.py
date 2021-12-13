@@ -6,7 +6,8 @@ import subprocess
 app = Flask(__name__)
 
 # vlc instance
-vlc = pexpect.spawn("vlc") #vlc instance to play the videos 
+import pexpect
+vlc = pexpect.spawn("vlc --no-video") #vlc instance to play the videos 
 vlc.expect('>')
 
 # API
