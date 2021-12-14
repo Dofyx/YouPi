@@ -24,49 +24,49 @@ def add():
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/play', methods=['POST'])
+@app.route('/play')
 def play_api():
     vlc.sendline("play")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/stop', methods=['POST'])
+@app.route('/stop')
 def stop_api():
     vlc.sendline("stop")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/pause', methods=['POST'])
+@app.route('/pause')
 def pause_api():
     vlc.sendline("pause")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/next', methods=['POST'])
+@app.route('/next')
 def next_api():
     vlc.sendline("next")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/prev', methods=['POST'])
+@app.route('/prev')
 def prev_api():
     vlc.sendline("prev")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/clear', methods=['POST'])
+@app.route('/clear')
 def clear_api():
     vlc.sendline("clear")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/volup', methods=['POST'])
+@app.route('/volup')
 def volup_api():
     vlc.sendline("volup 1")
     vlc.expect('>')
     return redirect("/")
 
-@app.route('/voldown', methods=['POST'])
+@app.route('/voldown')
 def voldown_api():
     vlc.sendline("voldown 1")
     vlc.expect('>')
