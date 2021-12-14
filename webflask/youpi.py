@@ -19,7 +19,7 @@ def index():
 @app.route('/', methods=['POST'])
 def add():
     link = request.form['youtube_link']
-    add_cmd = "enqueue " + link # sends this command to the vlc instance 
+    add_cmd = "enqueue " + link
     vlc.sendline(add_cmd)
     vlc.expect('>')
     return redirect("/")
